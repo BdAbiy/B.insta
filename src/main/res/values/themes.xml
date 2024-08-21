@@ -1,0 +1,16 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Theme.Binsta" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">#31363F</item>
+        <item name="colorPrimaryVariant">#31363F</item>
+        <item name="colorOnPrimary">#31363F</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">#31363F</item>
+        <item name="colorSecondaryVariant">#31363F</item>
+        <item name="colorOnSecondary">#31363F</item>
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
+        <!-- Customize your theme here. -->
+    </style>
+</resources>
