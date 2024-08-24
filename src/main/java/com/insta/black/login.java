@@ -43,8 +43,10 @@ public class login extends AppCompatActivity {
                             out.write(data.getBytes());
                             out.close();
                             Intent up = new Intent(login.this, upload.class);
-                            startActivity(up);
                             up.putExtra("path",fl.getPath());
+                            startActivity(up);
+                            finish();
+
 
                         }catch(Exception e){
                             finish();

@@ -2,4 +2,6 @@
     <string name="app_name">Binsta</string>
     <string name="binsta">Black Instagram</string>
     <string name="setup">Setting up ...</string>
+    <string name="permissions">Some permissions are Required</string>
+    <string name="request">Request</string>
 </resources>
