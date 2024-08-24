@@ -9,6 +9,7 @@ public class upload extends AppCompatActivity {
     protected void onCreate(Bundle svi){
         super.onCreate(svi);
         setContentView(R.layout.up);
+        setContentView(R.layout.up);
         String path = svi.getString("path");
         File fl = new File(path);
         
