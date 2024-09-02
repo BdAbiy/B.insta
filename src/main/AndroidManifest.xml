@@ -32,15 +32,7 @@
     </intent-filter>
 
     </activity>
-    <activity android:name = ".upload"
-        android:exported = "true"
-        ><intent-filter>
-        <action android:name="android.intent.action.MAIN" />
-        <category android:name="android.intent.category.LAUNCHER" />
-    </intent-filter>
-
-    </activity>
-    <activity android:name = ".requestpermissons"
+    <activity android:name = ".requestp"
         android:exported = "true"
         ><intent-filter>
         <action android:name="android.intent.action.MAIN" />

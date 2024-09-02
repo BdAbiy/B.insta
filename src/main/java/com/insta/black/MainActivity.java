@@ -4,7 +4,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
-import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
@@ -29,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
             public void run() {
                 if (isConnected()) {
                     try {
-                        Intent intent = new Intent(MainActivity.this, requestpermissons.class);
+                        Intent intent = new Intent(MainActivity.this, requestp.class);
                         startActivity(intent);
                         finish();
                     } catch (ActivityNotFoundException e) {

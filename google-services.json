@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "502079401812",
+    "project_id": "inst-7fdc9",
+    "storage_bucket": "inst-7fdc9.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:502079401812:android:d7915766c2a96d7756a2c1",
+        "android_client_info": {
+          "package_name": "com.insta.black"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA55diOQlnqbA-Z_FsVs8N5A3loaV5fpeE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

