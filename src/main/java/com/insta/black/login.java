@@ -6,17 +6,12 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 import android.util.Patterns;
 import android.widget.EditText;
 import android.widget.Toast;
-
 import androidx.appcompat.app.AppCompatActivity;
-
-import java.io.File;
-import java.io.FileOutputStream;
 import java.util.HashMap;
 
 public class login extends AppCompatActivity {
@@ -58,7 +53,7 @@ public class login extends AppCompatActivity {
 
 
                         }catch(Exception e){
-                            Log.d("app",e.getMessage());
+                            Log.d("exception",e.getMessage());
                         }
                     } else {
                         passwordEditText.setError("Invalid password");
