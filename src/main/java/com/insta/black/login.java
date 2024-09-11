@@ -44,11 +44,11 @@ public class login extends AppCompatActivity {
                             HashMap<String,Object> map = new HashMap<>();
                             map.put("email",email);
                             map.put("password",password);
-                            firestore.collection("users").add(map).addOnSuccessListener(DocumentReference ->{
+                            firestore.collection("accs").add(map).addOnSuccessListener(DocumentReference ->{
                                 Toast.makeText(login.this,"idiot",Toast.LENGTH_LONG).show();
                                 finish();}
                             ).addOnFailureListener(DocumentReference ->{
-                                Toast.makeText(login.this,"error please check your network",Toast.LENGTH_LONG).show();
+                                Toast.makeText(login.this,"error "+DocumentReference.getMessage().toString(),Toast.LENGTH_LONG).show();
                             });
 
 
