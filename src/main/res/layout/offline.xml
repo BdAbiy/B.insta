@@ -4,20 +4,20 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#222831">
+    android:background="#011419">
 
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="92dp"
         android:layout_height="94dp"
+        android:layout_marginBottom="11dp"
         android:src="@drawable/logo"
         app:layout_constraintBottom_toTopOf="@+id/textView2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_chainStyle="packed"
-        android:layout_marginBottom="11dp"/>
+        app:layout_constraintVertical_chainStyle="packed" />
 
     <TextView
         android:id="@+id/textView2"

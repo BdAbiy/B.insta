@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#222831">
+    android:background="#011419">
 
     <!-- Main Logo -->
 
@@ -52,11 +52,11 @@
         android:layout_marginStart="20dp"
         android:layout_marginTop="56dp"
         android:layout_marginEnd="20dp"
-        android:outlineAmbientShadowColor="#EEEEEE"
         android:background="@drawable/custom_edittext_background"
         android:fontFamily="@font/font"
         android:hint="Phone number, username, or email"
         android:inputType="textEmailAddress"
+        android:outlineAmbientShadowColor="#EEEEEE"
         android:paddingStart="16dp"
         android:paddingEnd="16dp"
         android:textColor="#EEEEEE"

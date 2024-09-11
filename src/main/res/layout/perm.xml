@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#222831">
+    android:background="#011419">
 
     <ImageView
         android:id="@+id/imageView"
@@ -41,10 +41,10 @@
         android:layout_margin="16dp"
         android:layout_marginTop="30dp"
         android:background="@drawable/custom_button_background"
+        android:fontFamily="@font/font"
         android:text="@string/request"
         android:textColor="#EEEEEE"
         android:textSize="18sp"
-        android:fontFamily="@font/font"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
