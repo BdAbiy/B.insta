@@ -5,8 +5,10 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -21,10 +23,9 @@ public class requestp extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.perm);
-        if(Build.VERSION.SDK_INT >= 23){
-            proceed();
-        }
         Button Brequest = (Button) findViewById(R.id.request);
+
+        
         Brequest.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -36,12 +37,13 @@ public class requestp extends AppCompatActivity {
 
     private void Rqpermissions(){
         if (Build.VERSION.SDK_INT >= 23){
-            if (ContextCompat.checkSelfPermission(this,Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED ||
-                    ContextCompat.checkSelfPermission(this,Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED){
-                requestPermissions(new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE,Manifest.permission.READ_EXTERNAL_STORAGE},PERMISSION_CODE);
+            if ( ContextCompat.checkSelfPermission(this,Manifest.permission.INTERNET) != PackageManager.PERMISSION_GRANTED){
+                Log.d("app","internet Perm not granted requesting");
+                requestPermissions(new String[]{Manifest.permission.INTERNET},PERMISSION_CODE);
             }
 
         }else {
+            Log.d("app","Build version >= 23 ");
             proceed();
         }
     }
@@ -49,15 +51,19 @@ public class requestp extends AppCompatActivity {
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
         if (requestCode == PERMISSION_CODE){
-            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED && grantResults[1] == PackageManager.PERMISSION_GRANTED){
-
+            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED){
+                TextView t = findViewById(R.id.textView2);
+                t.setText("requesting");
+                Log.d("app","ok !");
+                proceed();
             }else{
+                Log.d("app","error perms not granted");
                 Toast.makeText(this, "Permissions are required to proceed", Toast.LENGTH_SHORT).show();
             }
         }
     }
     private void proceed(){
-        Intent login = new Intent(requestp.this, com.insta.black.login.class);
+        Intent login = new Intent(requestp.this, login.class);
         startActivity(login);
         finish();
 

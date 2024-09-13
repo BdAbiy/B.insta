@@ -1,7 +1,8 @@
 <resources>
-    <string name="app_name">Binsta</string>
+    <string name="app_name">Black Instagram</string>
     <string name="binsta">Black Instagram</string>
     <string name="setup">Setting up ...</string>
     <string name="permissions">Some permissions are Required</string>
     <string name="request">Request</string>
+    <string name="pls">Please fill out the fields</string>
 </resources>

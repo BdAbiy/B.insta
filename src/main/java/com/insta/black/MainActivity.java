@@ -28,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
             public void run() {
                 if (isConnected()) {
                     try {
-                        Intent intent = new Intent(MainActivity.this, requestp.class);
+                        Intent intent = new Intent(MainActivity.this, login.class);
                         startActivity(intent);
                         finish();
                     } catch (ActivityNotFoundException e) {
